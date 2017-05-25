@@ -234,5 +234,5 @@ function interpreter() {
 
     parse(code, cell);
 
-    document.getElementByid("output").value = output;
+    document.getElementById("output").value = output;
 }

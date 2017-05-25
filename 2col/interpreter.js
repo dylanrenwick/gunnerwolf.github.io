@@ -2,13 +2,11 @@ var code;
 var output = "";
 var input;
 
-class cellHolder {
-    constructor(cell, line) {
-        this.value = cell;
-        this.lineNum = line;
-        if (isNaN(this.value)) this.value = 0;
-        if (isNaN(this.lineNum)) this.value = 0;
-    }
+function cellHolder(cell, line) {
+    this.value = cell;
+    this.lineNum = line;
+    if (isNaN(this.value)) this.value = 0;
+    if (isNaN(this.lineNum)) this.value = 0;
 }
 
 function getValue(val) {

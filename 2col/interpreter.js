@@ -6,8 +6,8 @@ class cellHolder {
     constructor(cell, line) {
         this.value = cell;
         this.lineNum = line;
-        if (this.value == NaN) this.value = 0;
-        if (this.lineNum == NaN) this.value = 0;
+        if (isNaN(this.value)) this.value = 0;
+        if (isNaN(this.lineNum)) this.value = 0;
     }
 }
 
@@ -18,7 +18,7 @@ function getValue(val) {
         return val.charCodeAt(0);
     } else {
         var parsed = parseInt(val);
-        if (parsed != NaN) {
+        if (!isNaN(parsed)) {
             return parsed;
         } else {
             return 0;
@@ -36,7 +36,7 @@ function getParam(valCode, lines, cell) {
         return valCode;
     } else {
         var parsed = parseInt(valCode);
-        if (parsed != NaN) {
+        if (!isNaN(parsed)) {
             return parsed;
         } else {
             return valCode.charCodeAt(0);
@@ -198,7 +198,7 @@ function parseLine(lines, cell) {
         return val;
     } else {
         var parsed = parseInt(l);
-        if (parsed != NaN) {
+        if (!isNaN(parsed)) {
             return parsed;
         } else {
             return l.charCodeAt(0);

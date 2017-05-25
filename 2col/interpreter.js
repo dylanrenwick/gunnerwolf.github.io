@@ -1,7 +1,6 @@
 var code;
 var output;
 var input;
-var cell = cellHolder(0, 0);
 
 function cellHolder(cell, line) {
     this.value = cell;
@@ -229,7 +228,7 @@ function interpreter() {
 
     input = document.getElementById("input").value;
 
-    cell.value = getValue(input);
+    cell = cellHolder(getValue(input), 0);
 
     parse(code, cell);
 

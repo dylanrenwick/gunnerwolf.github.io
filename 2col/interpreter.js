@@ -228,7 +228,7 @@ function interpreter() {
 
     input = document.getElementById("input").value;
 
-    cell = cellHolder(getValue(input), 0);
+    var cell = cellHolder(getValue(input), 0);
 
     parse(code, cell);
 

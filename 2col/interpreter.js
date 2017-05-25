@@ -15,14 +15,14 @@ function getValue(val) {
     if (typeof val === 'number') {
         return val;
     } else if (typeof val === 'string') {
-        return val.charCodeAt(0);
-    } else {
         var parsed = parseInt(val);
         if (!isNaN(parsed)) {
             return parsed;
         } else {
-            return 0;
+            return val.charCodeAt(0);
         }
+    } else {
+        return 0;
     }
 }
 

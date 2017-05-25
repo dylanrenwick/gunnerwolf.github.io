@@ -181,7 +181,7 @@ function parseLine(lines, cell) {
                 parse(end.lines, cellHolder(i, 0));
             }
         } else {
-            for (int i = 0; i < val; i++) {
+            for (var i = 0; i < val; i++) {
                 parse(end.lines, cellHolder(i, 0));
             }
         }

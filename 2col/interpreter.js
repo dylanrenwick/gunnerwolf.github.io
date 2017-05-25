@@ -207,7 +207,7 @@ function parseLine(lines, cell) {
 
 function parse(code, cell) {
     retval = 0;
-    while cell.lineNum < len(code) {
+    while (cell.lineNum < len(code)) {
         retval = parseLine(code, cell);
         cell.lineNum++;
     }

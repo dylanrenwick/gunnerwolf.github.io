@@ -6,6 +6,8 @@ class cellHolder {
     constructor(cell, line) {
         this.value = cell;
         this.lineNum = line;
+        if (this.value == NaN) this.value = 0;
+        if (this.lineNum == NaN) this.value = 0;
     }
 }
 

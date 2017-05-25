@@ -237,4 +237,5 @@ function interpreter() {
     parse(code, cell);
 
     document.getElementById("output").value = output;
+    output = "";
 }

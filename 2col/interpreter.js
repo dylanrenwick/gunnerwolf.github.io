@@ -2,9 +2,11 @@ var code;
 var output;
 var input;
 
-function cellHolder(cell, line) {
-    this.value = cell;
-    this.lineNum = line;
+class cellHolder {
+    constructor(cell, line) {
+        this.value = cell;
+        this.lineNum = line;
+    }
 }
 
 function getValue(val) {
@@ -25,9 +27,9 @@ function getValue(val) {
 function getParam(valCode, lines, cell) {
     if (valCode == 'v') {
         cell.lineNum += 1;
-        return parseLine(lines, cellHolder(cell.value, cell.lineNum));
+        return parseLine(lines, new cellHolder(cell.value, cell.lineNum));
     } else if (valCode == '^') {
-        return parseLine(lines, cellHolder(cell.value, cell.lineNum - 1));
+        return parseLine(lines, new cellHolder(cell.value, cell.lineNum - 1));
     } else if (typeof valCode === 'int') {
         return valCode;
     } else {
@@ -177,16 +179,16 @@ function parseLine(lines, cell) {
         end = findEnd(lines.slice(cell.lineNum + 1));
         if (val instanceof Array) {
             for (var i = 0; i < val.length; i++) {
-                parse(end.lines, cellHolder(i, 0));
+                parse(end.lines, new cellHolder(i, 0));
             }
         } else {
             for (var i = 0; i < val; i++) {
-                parse(end.lines, cellHolder(i, 0));
+                parse(end.lines, new cellHolder(i, 0));
             }
         }
         cell.lineNum += end.endIndex;
     } else if (l.startsWith('^')) {
-        var val = parseLine(lines, cellHolder(cell.value, cell.lineNum - 1));
+        var val = parseLine(lines, new cellHolder(cell.value, cell.lineNum - 1));
         return val;
     } else if (l.startsWith('v')) {
         cell.lineNum++;
@@ -228,7 +230,7 @@ function interpreter() {
 
     input = document.getElementById("input").value;
 
-    var cell = cellHolder(getValue(input), 0);
+    var cell = new cellHolder(getValue(input), 0);
 
     parse(code, cell);
 

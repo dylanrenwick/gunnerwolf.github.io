@@ -226,6 +226,7 @@ function interpreter() {
             output += "Line " + i + " contains invalid 2Col code!\n";
             output += code[i];
             document.getElementById("output").value = output;
+            output = "";
             return;
         }
     }

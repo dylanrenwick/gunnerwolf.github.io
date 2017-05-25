@@ -214,7 +214,7 @@ function parse(code, cell) {
         retval = parseLine(code, cell);
         cell.lineNum++;
     }
-    output += retval;
+    output += retval.toString();
 }
 
 function interpreter() {

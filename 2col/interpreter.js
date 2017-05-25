@@ -1,5 +1,5 @@
 var code;
-var output;
+var output = "";
 var input;
 
 class cellHolder {

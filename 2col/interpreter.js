@@ -215,8 +215,20 @@ function parse(code, cell) {
     output += retval.toString();
 }
 
+function chunk(str, n) {
+    var ret = [];
+    var i;
+    var len;
+    for(i = 0, len = str.length; i < len; i += n) {
+        ret.push(str.substr(i, n));
+    }
+    return ret;
+}
+
 function interpreter() {
     code = document.getElementById("code").value;
+    mode = document.getElementById("mode").value;
+    if (mode == "b") code = chunk(code, 2).join('\n');
     code = code.split('\n');
     for (var i = 0; i < code.length; i++) {
         if (code[i].length != 2) {

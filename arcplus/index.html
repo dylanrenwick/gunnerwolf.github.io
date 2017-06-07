@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>ArcPlus interpreter</title>
+<script type='text/javascript' src='arcplus.js'></script>
+<script type='text/javascript'>
+window.onload = function() {
+    var oldLog = console.log;
+    console.log = function(message) {
+        document.getElementById('output').innerHTML += message + "\n";
+        oldLog.apply(console, arguments);
+    };
+}
+
+function runCode() {
+    var code = document.getElementById("code").value;
+    interpret(parse(code));
+}
+</script>
+</head>
+<body>
+<h1>ArcPlus</h1>
+<textarea id='code' rows='6' cols='20'></textarea>
+<input type='submit' value='Run' onclick='runCode();'></input>
+<p id='output'>

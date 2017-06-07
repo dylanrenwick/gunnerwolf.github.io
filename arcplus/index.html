@@ -7,7 +7,7 @@
 window.onload = function() {
     var oldLog = console.log;
     console.log = function(message) {
-        document.getElementById('output').innerHTML += message + "\n";
+        document.getElementById('output').innerHTML += message + "<br>";
         oldLog.apply(console, arguments);
     };
 }

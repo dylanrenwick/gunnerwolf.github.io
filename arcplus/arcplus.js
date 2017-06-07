@@ -124,8 +124,13 @@ function refCheck(arg, env) {
 function initEnv() {
     var env = {};
     env[':'] = {type: 'func', value: function(e, x, y){refCheck(y,e);e[x.varname] = y.value; return y.value}};
+    env['set'] = env[':'];
     env['p'] = {type: 'func', value: function(e, x){refCheck(x,e);console.log(x.value); return x.value}};
+    env['print'] = env['p'];
     env['+'] = {type: 'func', value: function(e, x, y){refCheck(x,e);refCheck(y,e); return x.value + y.value}};
+    env['sum'] = env['+'];
+    env['-'] = {type: 'func', value: function(e, x, y){refCheck(x,e);refCheck(y,e); return x.value - y.value}};
+    env['sub'] = env['-'];
     return env;
 }
 

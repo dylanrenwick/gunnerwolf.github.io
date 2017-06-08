@@ -39,7 +39,7 @@ function extractTerm(code, index) {
 			} else if (!quote) {
 				quote = true;
 			}
-		} else if (' \t\r\n'.contains(c) && parenCount == 0 && !quote) {
+		} else if (' \t\r\n'.includes(c) && parenCount == 0 && !quote) {
 			return {term: ret, endIndex: index + 1};
 		}
 		ret += c;

@@ -89,7 +89,6 @@ function parseLine(lines, cell) {
         return 0;
     } else if (l == "==") {
         return 0;
-    }
     } else if (l.startsWith('+')) {
         if (l.length > 1) {
             var val = getParam(l[1], lines, cell);

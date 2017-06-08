@@ -25,9 +25,9 @@ function extractTerm(code, index) {
 	quote = false;
 	while (index < code.length) {
 		c = code[index];
-		if (c == '(') {
+		if (c == '(' && !quote) {
 			parenCount += 1;
-		} else if (c == ')') {
+		} else if (c == ')' && !quote) {
 			if (parenCount > 0) {
 				parenCount--;
 			} else {
@@ -39,7 +39,7 @@ function extractTerm(code, index) {
 			} else if (!quote) {
 				quote = true;
 			}
-		} else if (c == ' ' && parenCount == 0 && !quote) {
+		} else if (' \t\r\n'.contains(c) && parenCount == 0 && !quote) {
 			return {term: ret, endIndex: index + 1};
 		}
 		ret += c;

@@ -150,6 +150,8 @@ function initEnv() {
 	env['list'] = {type: 'func', value: function(e){return ([].slice.call(arguments)).slice(1)}, retVal: 'list', args: ['many']};
     env['i'] = {type: 'func', value: function(e, x, y){if (y.value >= 0 && y.value < x.value.length) return x.value[y.value]; else if (y.value < 0) return x.value[x.value.length - y.value]; else throwError('Index out of range!', e)}, retVal: 'value', args: ['list', 'num']};
 	env['append'] = {type: 'func', value: function(e, x, y){return x.value.push(y.value)}, retVal: 'list', args: ['list', 'num']};
+    env[','] = {type: 'func', value: function(e){return input.length?input.shift():-1;}, retVal: 'value', args: []};
+    env['input'] = env[','];
 	return env;
 }
 
@@ -214,7 +216,12 @@ function runFunc(func, env) {
 	}
 }
 
-var stackTrace = []
+var stackTrace = [];
+var input = [];
+
+function setInput(strng) {
+    input = strng.split('\n');
+}
 
 function interpret(ast) {
 	var env = initEnv();

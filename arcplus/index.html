@@ -26,6 +26,7 @@ window.onload = function() {
 function runCode() {
     var code = document.getElementById("code").value;
     document.getElementById('output').innerHTML = "";
+    setInput(document.getElementById('input').value);
     interpret(parse(code));
 }
 </script>
@@ -34,6 +35,7 @@ function runCode() {
 <h1>ArcPlus</h1>
 <textarea id='code' rows='6' cols='20'></textarea>
 <input type='submit' value='Run' onclick='runCode();'></input>
+<textarea id='input' rows='6' cols='20'></textarea>
 <p id='output'></p>
 <div class='right'>
     <h3>How to use:</h3>

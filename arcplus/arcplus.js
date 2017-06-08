@@ -191,10 +191,8 @@ function runFunc(func, env) {
 		var envFunc = env[func.func];
 		if (envFunc.type = 'func') {
 			var funcArgs = [env];
-			console.log('Args: ' + JSON.stringify(func.args));
 			var max = (envFunc.args.length > 0 && envFunc.args[0] == 'many') ? func.args.length : Math.min(func.args.length, envFunc.args.length);
 			for(var i = 0; i < max; i++) {
-				console.log('I: ' + i + '  len: ' + func.args.length + '  max: ' + max);
 				var newArg = castArg(func.args[i], envFunc.args[i], env);
 				funcArgs.push(newArg);
 			}

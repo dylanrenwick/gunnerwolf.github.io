@@ -132,15 +132,15 @@ function refCheck(arg, env) {
 }
 
 function initEnv() {
-	var env = {};
-	env[':'] = {type: 'func', value: function(e, x, y){e[x.value] = {type: y.type, value: y.value}; return y.value}, retVal: 'value', args: ['varname', 'value']};
-	env['set'] = env[':'];
-	env['p'] = {type: 'func', value: function(e, x){console.log(x.value); return x.value}, retVal: 'value', args: ['value']};
-	env['print'] = env['p'];
-	env['+'] = {type: 'func', value: function(e, x, y){return x.value + y.value}, retVal: 'value', args: ['value', 'value']};
-	env['sum'] = env['+'];
-	env['-'] = {type: 'func', value: function(e, x, y){return x.value - y.value}, retVal: 'num',   args: ['num', 'num']};
-	env['sub'] = env['-'];
+    var env = {};
+    env[':'] = {type: 'func', value: function(e, x, y){e[x.value] = {type: y.type, value: y.value}; return y.value}, retVal: 'value', args: ['varname', 'value']};
+    env['set'] = env[':'];
+    env['p'] = {type: 'func', value: function(e, x){console.log(x.value); return x.value}, retVal: 'value', args: ['value']};
+    env['print'] = env['p'];
+    env['+'] = {type: 'func', value: function(e, x, y){return x.value + y.value}, retVal: 'value', args: ['value', 'value']};
+    env['sum'] = env['+'];
+    env['-'] = {type: 'func', value: function(e, x, y){return x.value - y.value}, retVal: 'num',   args: ['num', 'num']};
+    env['sub'] = env['-'];
 	env['*'] = {type: 'func', value: function(e, x, y){return x.value * y.value}, retVal: 'value', args: ['value', 'num']};
 	env['mul'] = env['*'];
 	env['/'] = {type: 'func', value: function(e, x, y){return x.value / y.value}, retVal: 'num',  args: ['num', 'num']};

@@ -13,8 +13,6 @@
     padding: 10px;
 }
 </style>
-<script type='text/javascript' src='lodash.js'></script>
-<script type='text/javascript' src='benchmark.js'></script>
 <script type='text/javascript' src='arcplus.js'></script>
 <script type='text/javascript'>
 window.onload = function() {
@@ -29,26 +27,14 @@ function runCode() {
     var code = document.getElementById("code").value;
     var input = document.getElementById('input').value;
     document.getElementById('output').innerHTML = "";
-    var bm = document.getElementById('benchmark').value;
-    if (bm) {
-        var suite = new Benchmark.Suite;
-        suite.add('codeRun', function() {
-            setInput(input);
-            interpret(parse(code));
-        }).on('complete', function() {
-            console.log('Completed in ' + this.times.cycle + 's');
-        }).run();
-    } else {
-        setInput(input);
-        interpret(parse(code));
-    }
+    setInput(input);
+    interpret(parse(code));
 }
 </script>
 </head>
 <body>
 <h1>ArcPlus</h1>
 <textarea id='code' rows='6' cols='20'></textarea>
-<input type='checkbox' id='benchmark' name='benchmark'>Benchmark<br>
 <input type='submit' value='Run' onclick='runCode();'></input>
 <textarea id='input' rows='6' cols='20'></textarea>
 <p id='output'></p>

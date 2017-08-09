@@ -25,7 +25,9 @@ function getValue(val) {
 }
 
 function getParam(valCode, lines, cell) {
-    if (valCode == 'v') {
+	if (valCode === undefined) {
+		return 0;
+	} else if (valCode == 'v') {
         cell.lineNum += 1;
         return parseLine(lines, new cellHolder(cell.value, cell.lineNum));
     } else if (valCode == '^') {
